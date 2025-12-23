@@ -47,7 +47,7 @@
     </div>
 
     <div class="row g-3">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-6 col-lg-3">
             <a href="{{ route('admin.customers.index') }}">
                 <div class="card card-mechtrack-soft h-100">
                     <div class="card-body">
@@ -58,7 +58,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-6 col-lg-3">
             <a href="{{ route('admin.vehicles.index') }}">
                 <div class="card card-mechtrack-soft h-100">
                     <div class="card-body">
@@ -69,13 +69,24 @@
                 </div>
             </a>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-6 col-lg-3">
             <a href="{{ route('admin.repairs.index') }}">
                 <div class="card card-mechtrack-soft h-100">
                     <div class="card-body">
                         <h5 class="card-title">Repair Orders</h5>
                         <p class=" mb-2">Track repair jobs & costs.</p>
                         <span class="btn btn-sm btn-outline-light">Go to repairs</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <a href="{{ route('admin.customers.history') }}">
+                <div class="card card-mechtrack-soft h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Customer History</h5>
+                        <p class=" mb-2">View complete repair history.</p>
+                        <span class="btn btn-sm btn-outline-light">Check history</span>
                     </div>
                 </div>
             </a>

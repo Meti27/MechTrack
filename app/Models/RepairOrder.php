@@ -20,4 +20,9 @@ class RepairOrder extends Model
     {
         return $this->belongsTo(Vehicle::class);
     }
+    public function items()
+    {
+        return $this->hasMany(\App\Models\RepairItem::class);
+    }
+
 }

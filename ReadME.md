@@ -183,5 +183,40 @@ Notifications for completed repairs
 
 💬 Author
 
+
+🧠 DevOps Workflow Documentation
+
+DevOps improves delivery by:
+
+Running code tests after every push
+
+Validating builds automatically
+
+Providing CI pipeline feedback
+
+Preparing deployment code
+
+CI Tasks:
+
+Checkout repository
+
+Setup Java and Maven
+
+Run tests
+
+Build JAR
+
+Deployment Flow:
+
+Developer commits changes
+
+Push to GitHub
+
+CI pipeline builds
+
+Tests validate
+
+App ready to deploy 
+
 MechTrack created by Muhamed Iseni —
 Designed as a complete Laravel workshop app project.

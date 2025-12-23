@@ -69,6 +69,42 @@
             <a href="{{ route('admin.repairs.index') }}" class="btn btn-secondary ms-2">Cancel</a>
         </form>
                 </div>
+                <hr class="my-4">
+
+                <h5 class="mb-2">Repair Items (Fixes Done)</h5>
+                <p class="text-white-50 mb-3">Add the work/parts + cost. This builds repair history.</p>
+
+                <div id="itemsWrap" class="d-flex flex-column gap-2">
+                    <div class="d-flex gap-2">
+                        <input type="text" name="items[0][description]" class="form-control" placeholder="e.g. Oil change">
+                        <input type="number" step="0.01" name="items[0][cost]" class="form-control" placeholder="Cost (€)" style="max-width: 160px;">
+                        <button type="button" class="btn btn-outline-light" onclick="removeRow(this)">✕</button>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-outline-light mt-3" onclick="addRow()">+ Add item</button>
+
+                <script>
+                    let itemIndex = 1;
+
+                    function addRow() {
+                        const wrap = document.getElementById('itemsWrap');
+                        const row = document.createElement('div');
+                        row.className = "d-flex gap-2";
+                        row.innerHTML = `
+            <input type="text" name="items[${itemIndex}][description]" class="form-control" placeholder="e.g. Brake pads">
+            <input type="number" step="0.01" name="items[${itemIndex}][cost]" class="form-control" placeholder="Cost (€)" style="max-width: 160px;">
+            <button type="button" class="btn btn-outline-light" onclick="removeRow(this)">✕</button>
+        `;
+                        wrap.appendChild(row);
+                        itemIndex++;
+                    }
+
+                    function removeRow(btn) {
+                        btn.parentElement.remove();
+                    }
+                </script>
+
             </div>
         </div>
     </div>

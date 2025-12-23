@@ -25,6 +25,7 @@ class RepairOrderController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'vehicle_id'  => 'required|exists:vehicles,id',
             'title'       => 'required|string|max:255',
@@ -32,6 +33,7 @@ class RepairOrderController extends Controller
             'status'      => 'required|in:pending,in_progress,completed,delivered',
             'total_cost'  => 'nullable|numeric|min:0',
         ]);
+
 
         RepairOrder::create([
             'vehicle_id'  => $request->vehicle_id,
