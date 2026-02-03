@@ -42,10 +42,10 @@ Route::get('/dashboard', function () {
 
 Route::prefix('admin')
     ->name('admin.')
-    ->middleware('auth')
+    ->middleware(['auth', 'admin'])
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        Route::get('/customers/history', [App\Http\Controllers\Admin\HistoryController::class, 'index'])->name('customers.history');
+        Route::get('/customers/history', [HistoryController::class, 'index'])->name('customers.history');
 
         Route::resource('customers', CustomerController::class);
         Route::resource('vehicles', VehicleController::class);
