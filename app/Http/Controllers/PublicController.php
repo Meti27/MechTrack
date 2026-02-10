@@ -20,9 +20,11 @@ class PublicController extends Controller
     public function trackRepair(Request $request)
     {
         $request->validate([
-            'license_plate' => 'required|string',
-            'phone'         => 'required|string',
+            'license_plate' => ['required', 'string', 'max:20'],
         ]);
+
+        // Normalize for better matching
+        $plate = strtoupper(trim($request->license_plate));
 
         $vehicle = Vehicle::with([
             'customer',
@@ -30,16 +32,13 @@ class PublicController extends Controller
                 $query->orderByDesc('created_at');
             }
         ])
-            ->where('license_plate', $request->license_plate)
-            ->whereHas('customer', function ($query) use ($request) {
-                $query->where('phone', $request->phone);
-            })
+            ->where('license_plate', $plate)
             ->first();
 
         if (!$vehicle || $vehicle->repairOrders->isEmpty()) {
             return back()
                 ->withInput()
-                ->with('status', 'No repair history found for this vehicle & phone combination.');
+                ->with('status', 'No repair history found for this license plate.');
         }
 
         return view('public.track', [

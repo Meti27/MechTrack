@@ -14,16 +14,12 @@
 
                         <div class="mb-3">
                             <label class="form-label">License Plate</label>
-                            <input type="text" name="license_plate" class="form-control"
-                                   value="{{ old('license_plate') }}" required>
+                            <input type="text"
+                                   name="license_plate"
+                                   class="form-control text-uppercase"
+                                   value="{{ old('license_plate') }}"
+                                   required>
                             @error('license_plate') <small class="text-danger">{{ $message }}</small> @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Phone Number</label>
-                            <input type="text" name="phone" class="form-control"
-                                   value="{{ old('phone') }}" required>
-                            @error('phone') <small class="text-danger">{{ $message }}</small> @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary">Check Status</button>
@@ -38,7 +34,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="alert alert-info">
-                        No repair records found for this license plate and phone number.
+                        No repair records found for this license plate.
                     </div>
                 </div>
             </div>
