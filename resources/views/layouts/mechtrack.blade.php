@@ -30,7 +30,7 @@
         }
 
         .brand-highlight {
-            color: #158bfa;
+            color: #1574fa;
         }
 
         .card-mechtrack {
