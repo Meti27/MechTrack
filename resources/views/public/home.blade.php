@@ -205,71 +205,94 @@
     </section>
 
     <section id="system" class="system-section">
-        <div class="container split">
-            <div class="tracking-card">
-                <span>Customer Repair Check</span>
-                <h3>Enter license plate</h3>
-
-                <div class="fake-input">
-                    Example: SK-1234-AB
-                </div>
-
-                <div class="fake-button">
-                    Check Repair Status
-                </div>
-
-                <div class="status-box">
-                    <strong>Ready for Pickup</strong>
-                    <p>Your vehicle is ready. Please contact the shop before pickup.</p>
-                </div>
-            </div>
-
-            <div>
+        <div class="container system-single">
+            <div class="system-content">
                 <p class="eyebrow">The System</p>
 
                 <h2>
-                    Customers check their car status online.
+                    From phone calls to online repair updates.
                 </h2>
 
                 <p class="section-text">
-                    The mechanic adds the customer, vehicle, and repair order from the admin dashboard.
-                    When the repair status changes, the customer can check it from the public tracking page.
+                    Customers no longer need to call just to ask if their car is ready.
+                    They enter their license plate, check the latest status, and know what stage the repair is in.
+                </p>
+
+                <div class="status-flow">
+                    <div>
+                        <span>01</span>
+                        <strong>Vehicle received</strong>
+                    </div>
+
+                    <div>
+                        <span>02</span>
+                        <strong>Repair in progress</strong>
+                    </div>
+
+                    <div>
+                        <span>03</span>
+                        <strong>Ready for pickup</strong>
+                    </div>
+                </div>
+
+                <p class="system-note">
+                    Visitors can test the feature using the demo license plates shown above.
                 </p>
 
                 <div class="hero-actions">
                     <a href="{{ route('track.form') }}" class="primary-btn">
                         Open Tracking Page
                     </a>
-
-                    <a href="{{ route('login') }}" class="secondary-btn">
-                        Open Admin Login
-                    </a>
                 </div>
             </div>
         </div>
     </section>
-
     <section class="final-section">
-        <div class="container final-card">
-            <p class="eyebrow">Built for local mechanic shops</p>
+        <div class="container">
+            <div class="owner-section">
+                <div class="owner-header">
+                    <p class="eyebrow">For mechanic shop owners</p>
 
-            <h2>
-                A better website. Fewer status calls. More trust.
-            </h2>
+                    <h2>
+                        More than a website — a small system that makes the shop look organized.
+                    </h2>
 
-            <p>
-                This demo can be customized for real mechanic shops with their branding,
-                services, location, phone number, and admin workflow.
-            </p>
+                    <p>
+                        This demo shows how a mechanic shop can have a professional online presence and a private workflow
+                        for managing customers, vehicles, and repair updates.
+                    </p>
+                </div>
 
-            <div class="hero-actions">
-                <a href="{{ route('track.form') }}" class="primary-btn">
-                    Try Customer Tracking
-                </a>
+                <div class="owner-grid">
+                    <div class="owner-card">
+                        <span>01</span>
+                        <h3>Professional public website</h3>
+                        <p>
+                            Services, trust signals, clear buttons, and a modern design that helps the shop look serious online.
+                        </p>
+                    </div>
 
-                <a href="{{ route('login') }}" class="secondary-btn">
-                    Login to Dashboard
-                </a>
+                    <div class="owner-card">
+                        <span>02</span>
+                        <h3>Customer repair tracking</h3>
+                        <p>
+                            Customers can check repair progress using their license plate instead of calling the shop repeatedly.
+                        </p>
+                    </div>
+
+                    <div class="owner-card">
+                        <span>03</span>
+                        <h3>Private shop dashboard</h3>
+                        <p>
+                            The mechanic can manage customers, vehicles, repair orders, and statuses from a private admin area.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="owner-note">
+                    <strong>Demo note:</strong>
+                    The public demo only shows the customer tracking side. The dashboard stays private unless a real shop wants to see it.
+                </div>
             </div>
         </div>
     </section>
@@ -288,6 +311,103 @@
             padding-top: 130px;
             padding-bottom: 90px;
             overflow: hidden;
+        }
+        .status-flow {
+            margin-top: 34px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            max-width: 850px;
+        }
+
+        .status-flow div {
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.04);
+            border-radius: 20px;
+            padding: 22px;
+        }
+
+        .status-flow span {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: #fdba74;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .status-flow strong {
+            display: block;
+            color: white;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .owner-section {
+            border: 1px solid rgba(249,115,22,0.22);
+            background:
+                radial-gradient(circle at top left, rgba(249,115,22,0.13), transparent 35%),
+                linear-gradient(135deg, #151C2A, #0A0F18);
+            border-radius: 32px;
+            padding: 48px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.32);
+        }
+
+        .owner-header {
+            max-width: 850px;
+        }
+
+        .owner-header p:not(.eyebrow) {
+            margin-top: 22px;
+            max-width: 760px;
+            color: #cbd5e1;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .owner-grid {
+            margin-top: 38px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .owner-card {
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.04);
+            border-radius: 22px;
+            padding: 26px;
+        }
+
+        .owner-card span {
+            color: #fdba74;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .owner-card h3 {
+            margin: 28px 0 0;
+            color: white;
+            font-size: 22px;
+        }
+
+        .owner-card p {
+            margin: 14px 0 0;
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        .owner-note {
+            margin-top: 24px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.22);
+            padding: 18px;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .owner-note strong {
+            color: #fdba74;
         }
 
         .hero-bg {
@@ -761,6 +881,21 @@
         .demo-note strong {
             color: #fdba74;
         }
+        .system-single {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .system-content {
+            max-width: 820px;
+        }
+
+        .system-note {
+            margin-top: 18px;
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.7;
+        }
 
         @media (max-width: 600px) {
             .hero {
@@ -776,6 +911,14 @@
 
             .final-card {
                 padding: 32px;
+            }
+            .status-flow,
+            .owner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .owner-section {
+                padding: 28px;
             }
 
             h1,
